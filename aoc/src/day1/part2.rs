@@ -4,7 +4,7 @@ mod tests {
 
     #[test]
     fn test_input() {
-        let demo = include_str!("../../../inputs/day1_sample.txt");
+        let demo = include_str!("inputs/sample.txt");
         assert_eq!(run(demo), 45000u32);
     }
 }

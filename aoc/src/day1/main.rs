@@ -2,7 +2,7 @@ mod part1;
 mod part2;
 
 fn main() {
-    let input = include_str!("../../../inputs/day1.txt");
+    let input = include_str!("inputs/input.txt");
     
     println!("Part 1");
     println!("Largest inventory: {}", part1::run(input));
