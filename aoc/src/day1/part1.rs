@@ -1,4 +1,16 @@
-pub fn run(input: &str) {
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_input() {
+        let demo = include_str!("../../../inputs/day1_sample.txt");
+        assert_eq!(run(&demo), 24000u32);
+    }
+}
+
+pub fn run(input: &str) -> u32 {
     let mut elves: Vec<u32> = Vec::new();
     elves.push(0); // initialize first elf's inventory
 
@@ -14,6 +26,5 @@ pub fn run(input: &str) {
     }
 
     // Get the largest inventory
-    let result = elves.iter().max().unwrap();
-    println!("Largest inventory: {}", result);
+    *elves.iter().max().unwrap()
 }

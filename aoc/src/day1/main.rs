@@ -1,13 +1,12 @@
-use aoc::shared::load_input;
 mod part1;
 mod part2;
 
 fn main() {
-    let input = load_input();
+    let input = include_str!("../../../inputs/day1.txt");
     
     println!("Part 1");
-    part1::run(&input);
+    println!("Largest inventory: {}", part1::run(input));
     
     println!("Part 2");
-    part2::run(&input);
+    println!("Top 3 inventories: {}", part2::run(input));
 }
