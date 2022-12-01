@@ -6,7 +6,7 @@ mod tests {
     #[test]
     fn test_input() {
         let demo = include_str!("inputs/sample.txt");
-        assert_eq!(run(&demo), 24000u32);
+        assert_eq!(run(demo), 24000u32);
     }
 }
 
