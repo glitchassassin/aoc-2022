@@ -1,15 +1,13 @@
 use std::collections::HashSet;
+use itertools::Itertools;
 
 pub fn run(input: &str) -> usize {
     let priorities = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let mut score: usize = 0;
 
-    let mut iter = input.split('\n');
+    let iter = input.split('\n').map(|i| i.chars().collect::<HashSet<char>>());
     
-    loop {
-        let elf1: HashSet<char> = iter.next().unwrap_or("").chars().collect();
-        let elf2: HashSet<char> = iter.next().unwrap_or("").chars().collect();
-        let elf3: HashSet<char> = iter.next().unwrap_or("").chars().collect();
+    for (elf1, elf2, elf3) in iter.tuples() {
         let reduced = [elf2, elf3]
             .iter()
             .fold(elf1, |init, set| init.intersection(set).copied().collect());
