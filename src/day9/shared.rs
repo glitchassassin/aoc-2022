@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 /**
  * Return the Chebyshev distance between two points.
  */
@@ -42,14 +44,14 @@ pub fn follow_the_leader(
         return ((h_x, h_y), (t_x, t_y));
     }
     let t_x = match h_x.cmp(&t_x) {
-        std::cmp::Ordering::Greater => t_x + 1,
-        std::cmp::Ordering::Less => t_x - 1,
-        std::cmp::Ordering::Equal => t_x,
+        Ordering::Greater => t_x + 1,
+        Ordering::Less => t_x - 1,
+        Ordering::Equal => t_x,
     };
     let t_y = match h_y.cmp(&t_y) {
-        std::cmp::Ordering::Greater => t_y + 1,
-        std::cmp::Ordering::Less => t_y - 1,
-        std::cmp::Ordering::Equal => t_y,
+        Ordering::Greater => t_y + 1,
+        Ordering::Less => t_y - 1,
+        Ordering::Equal => t_y,
     };
     ((h_x, h_y), (t_x, t_y))
 }
