@@ -9,6 +9,7 @@ edition = "2021"
 itertools = "0.10.5"
 regex = "1.7"
 num-bigint = "0.4.3"
+serde_json = "1.0.89"
 
 [[bin]]
 name = "day01"
@@ -57,3 +58,7 @@ path = "src/day11/main.rs"
 [[bin]]
 name = "day12"
 path = "src/day12/main.rs"
+
+[[bin]]
+name = "day13"
+path = "src/day13/main.rs"
