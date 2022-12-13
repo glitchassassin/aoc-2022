@@ -37,7 +37,7 @@ pub fn parse_map(input: &str) -> (Vec<Vec<i32>>, Vec<(i32, i32)>, (i32, i32)) {
 /**
  * Get the neighbors of a node on a map.
  */
-fn get_neighbors(map: Vec<Vec<i32>>, node: (i32, i32)) -> Vec<(i32, i32)> {
+fn get_neighbors(map: &Vec<Vec<i32>>, node: (i32, i32)) -> Vec<(i32, i32)> {
     let mut neighbors = vec![
         (node.0, node.1 - 1),
         (node.0, node.1 + 1),
@@ -72,7 +72,7 @@ fn breadth_first_search(map: Vec<Vec<i32>>, start: (i32, i32), end: Vec<(i32, i3
             continue;
         }
         visited[node.1 as usize][node.0 as usize] = true;
-        for neighbor in get_neighbors(map.clone(), node) {
+        for neighbor in get_neighbors(&map, node) {
             queue.push((neighbor, distance + 1));
         }
     }
@@ -82,7 +82,7 @@ fn breadth_first_search(map: Vec<Vec<i32>>, start: (i32, i32), end: Vec<(i32, i3
 pub fn run(input: &str) -> i32 {
     let (map, start, end) = parse_map(input);
 
-    breadth_first_search(map.clone(), end, start)
+    breadth_first_search(map, end, start)
 }
 
 #[cfg(test)]
